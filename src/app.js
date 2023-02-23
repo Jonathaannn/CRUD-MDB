@@ -10,10 +10,11 @@ app.use(bodyParser.json())
 
 conn()
 
-app.use("/posts", router)
+const mainRoute = "api"
+app.use(`/${mainRoute}`, router)
 
 const port = process.env.PORT || 3000
 app.listen(port, () => {
     console.log("Aplicação rodando!")
-    console.log(`http://localhost:${port}/posts`)
+    console.log(`http://localhost:${port}/${mainRoute}`)
 })
